@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html, body{
+    background: url('../img/congruent_pentagon.png');
+    background-repeat: repeat;
+    background-attachment: scroll;
+}
+
+footer{
+    background: #3c4045;
+    padding: 30px 0;
+    color: #fff;
+}
