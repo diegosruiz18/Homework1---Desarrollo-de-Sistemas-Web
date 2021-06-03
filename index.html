@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BMI Web App</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <!--Imagen fondo de header-->
+        <header>
+            <img class="img-fluid d-block w-100" src="img/laboFondo.jpeg" alt="">
+        </header>
+
+        <!--Contenido principal-->
+        <main class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="py 4 border bottom">
+                        <h1 class="text-center">BMI Web App</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-4">
+                <div class="col-12">
+                    <div class="py 4">
+                        <h6 class="text-center">Ingrese sus datos y conozca su índice de masa corporal.</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--Formulario dentro de un card-->
+                <div class="col-md-6 col-xs-12">
+                    <div class="card">
+                        <div class="card-header titulo-card text-center bg-success text-white py-3">Adult BMI Calculator</div>
+                        <div class="card-body">
+                            <form action="" id="form">
+                                <div class="form-group row">
+                                    <div class="col-12 col-md-6 mb-3 py-md-3 py-0">
+                                        <label for="nombre">Apellidos</label>
+                                        <input type="text" class="form-control" placeholder="" name="nombre" id="apellidos">
+                                    </div>
+
+                                    <div class="col-12 col-md-6 mb-3 py-md-3 py-0">
+                                        <label for="password">Nombres</label>
+                                        <input type="text" class="form-control" placeholder="" name="nombre" id="nombres">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12 col-md-6 mb-3 py-md-3 py-0">
+                                        <label for="nombre">Talla (centímetros)</label>
+                                        <input type="text" class="form-control" placeholder="" name="nombre" id="talla">
+                                    </div>
+        
+                                    <div class="col-12 col-md-6 mb-3 py-md-3 py-0">
+                                        <label for="password">Peso (kilos)</label>
+                                        <input type="text" class="form-control" placeholder="" name="nombre" id="peso">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-12 mb-3 py-md-3 py-0">
+                                        <input type="button" onclick="obtenerBmi()" class="btn btn-success btn-block" value="Calcular">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Tabla e imagen imc-->
+                <div class="col-md-6 col-xs-12">
+                    <div class="row py-xl-0 pt-lg-0 pt-md-0 pt-4">
+                        <div class="col">
+                            <table class="table table-striped table-bordered table-hover table-sm table-responsive-xs">
+                                <thead>
+                                    <tr class="bg-secondary text-center">
+                                        <th>Clasificación</th>
+                                        <th>IMC (kg/m^2)</th>
+                                        <th>Riesgo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-active text-center">
+                                        <td class="bg-success "><b>Normal</b></td>
+                                        <td>18.5 - 24.9</td>
+                                        <td>Promedio</td>
+                                    </tr>
+                                    <tr class="table-active text-center">
+                                        <td class="bg-warning "><b>Sobrepeso</b></td>
+                                        <td>25 - 29.9</td>
+                                        <td>Aumentado</td>
+                                    </tr>
+                                    <tr class="table-active text-center">
+                                        <td class="bg-danger "><b>Obesidad grado I</b></td>
+                                        <td>30 - 34.9</td>
+                                        <td>Moderado</td>
+                                    </tr>
+                                    <tr class="table-active text-center">
+                                        <td class="bg-danger "><b>Obesidad grado II</b></td>
+                                        <td>35 - 39.9</td>
+                                        <td>Severo</td>
+                                    </tr>
+                                    <tr class="table-active text-center">
+                                        <td class="bg-danger "><b>Obesidad grado III</b></td>
+                                        <td>Más de 40</td>
+                                        <td>Muy severo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <small class="text-muted">Fuente: OMS(Organización Mundial de la Salud)</small>
+                        </div>
+                    </div>
+
+                    <div class="row pt-xl-3 pt-lg-5 pt-md-0 pt-3">
+                        <div class="col text-center">
+                            <img class="img-fluid d-block w-100" src="img/imc.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Resultados-->
+            <div class="row py-4">
+                <div class="col-12">
+                    <div class="py 4">
+                        <h2 class="text-center">Resultados</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!--Tabla de resultados (card)-->
+            <div class="row pb-5">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header titulo-card text-center bg-success text-white">Adult BMI Calculator - Results</div>
+                        <div class="card-body">
+                            <output type="text" id="resultado1"></output><br>
+                            <output type="text" id="resultado2"></output><br>
+                            <output type="text" id="resultado3"></output><br>
+                            <output type="text" id="resultado4"></output><br>
+                            <output type="text" id="resultado5"></output><br>
+                            <output type="text" id="resultado6"></output>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!--Footer-->
+        <footer>
+            <div class="direccion">
+                <div class="container">
+                    <div class="row">
+                        <div class="col md-8">
+                            <h6 class="text-center">© 2021 - Página realizada por: Diego Carlos Socualaya Ruiz</h6>
+                            <h6 class="text-center">FISI - UNMSM</h6>
+                            <h6 class="text-center">Desarrollo de Sistemas Web</h6>
+                            <a href="https://www.euro.who.int/en/health-topics/disease-prevention/nutrition/a-healthy-lifestyle/body-mass-index-bmi">
+                                <h6 class="text-center">Más información sobre IMC aquí</h6></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/jquery-3.5.0.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bmi.js"></script>
+    </body>
+</html>
